@@ -1,0 +1,16 @@
+cluster.name: opensearch-cluster
+node.name: opensearch-node1
+path.data: /usr/share/opensearch/data
+path.logs: /usr/share/opensearch/logs
+
+discovery.seed_hosts: ["opensearch-node1", "opensearch-node2"]
+cluster.initial_cluster_manager_nodes: ["opensearch-node1", "opensearch-node2"]
+
+bootstrap.memory_lock: true
+indices.query.bool.max_clause_count: 10000
+
+opensearch.ssl.transport.enabled: false
+opensearch.ssl.http.enabled: false
+
+opensearch.initial_password: myOpenSearchPass123
+

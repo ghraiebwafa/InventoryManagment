@@ -1,0 +1,40 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  inventoryconsumer:
+    build:
+      context: "/home/wafa/dotnet-course-code/InventoryManagement"
+      dockerfile: "InventoryConsumer/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/InventoryConsumer.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "inventoryconsumer:dev"
+    ports: []
+    volumes:
+    - "/home/wafa/dotnet-course-code/InventoryManagement/InventoryConsumer:/app:rw"
+    - "/home/wafa/dotnet-course-code/InventoryManagement:/src:rw"
+    - "/home/wafa/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"
+  inventoryproducer:
+    build:
+      context: "/home/wafa/dotnet-course-code/InventoryManagement"
+      dockerfile: "InventoryProducer/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/InventoryProducer.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "inventoryproducer:dev"
+    ports: []
+    volumes:
+    - "/home/wafa/dotnet-course-code/InventoryManagement/InventoryProducer:/app:rw"
+    - "/home/wafa/dotnet-course-code/InventoryManagement:/src:rw"
+    - "/home/wafa/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"
